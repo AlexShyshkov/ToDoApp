@@ -30,7 +30,13 @@ class Model{
 	}
 
 	changeCompleteProperty(id){
-
+		this.todoItems = this.todoItems.map(todoItem =>
+			todoItem.id === id ? {
+				id: todoItem.id,
+				text: todoItem.inputedText,
+				isComplete: !todoItem.isComplete
+			} : todoItem
+		);
 	}
 }
 
@@ -45,6 +51,6 @@ class Controller{
 	}
 }
 
-let model = new Model();
-let view = new View();
-let todoApp = new Controller(model, view);
+let modelApp = new Model();
+let viewApp = new View();
+let todoApp = new Controller(modelApp, viewApp);
