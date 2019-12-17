@@ -41,7 +41,18 @@ class Model{
 }
 
 class View{
+	constructor(){
 
+	}
+
+	createBlock(tagName, className){
+		let block = document.createElement(tagName);
+		if(className){
+			block.classList.add(className);
+		}
+
+		return block;
+	}
 }
 
 class Controller{
