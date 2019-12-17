@@ -53,6 +53,12 @@ class View{
 
 		return block;
 	}
+
+	getElement(elementId){
+		let element = document.getElementById(elementId);
+		
+		return element;
+	}
 }
 
 class Controller{
