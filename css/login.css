@@ -1,0 +1,78 @@
+.login-block{
+    background-color: white;
+    width: 310px;
+    padding: 20px 20px 20px 20px;
+    border: 2px solid #66a3ff;
+    border-radius: 2px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+}
+.login-block h3{
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #cfcfcf;
+    border-radius: 2px 2px 0 0;
+}
+.login-block p{
+    margin: 20px 0 0;
+}
+.login-block p:first-child{
+    margin-top: 0;
+}
+.login-block input[type=text],
+.login-block input[type=password]{
+    width: 260px;
+}
+.login-block p.remember-me{
+    float: left;
+    line-height: 30px;
+}
+.login-block p.remember-me label{
+    font-size: 12px;
+    color: #777;
+    cursor: pointer;
+}
+.login-block p.remember-me input{
+    position: relative;
+    bottom: 1px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+.login-block p.submit{
+    text-align: right;
+}
+input{
+    font-size: 14px;
+}
+input[type=text],
+input[type=password]{
+    margin: 5px;
+    padding: 0 10px;
+    width: 200px;
+    height: 35px;
+    color: #404040;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+input[type=button]{
+    padding: 0 18px;
+    height: 29px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #527881;
+    text-shadow: 0 1px #e3f1f1;
+    background-color: #cde5ef;
+    border: 1px solid #b4ccce;
+    border-radius: 16px;
+    outline: 0;
+    box-sizing: content-box;
+    cursor: pointer;
+}

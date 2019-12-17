@@ -1,0 +1,17 @@
+*{
+	box-sizing: border-box;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+}
+body{
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.visible{
+	display: block;
+}
+.hidden{
+	display: none;
+}
