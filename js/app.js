@@ -49,7 +49,7 @@ class View{
 		this.inputBlock.id = 'inputBlock';
 
 		/*Select for filter items*/
-		this.select = this.createBlock('select');
+		this.select = this.createBlock('select', 'todo-select');
 		this.select.id = 'taskFilter';
 		this.optionAll = this.createBlock('option');
 		this.optionAll.text = 'All';
@@ -92,6 +92,14 @@ class View{
 		let element = document.getElementById(elementId);
 
 		return element;
+	}
+
+	get inputText(){
+		return this.input.value;
+	}
+
+	clearInput(){
+		this.input.value = '';
 	}
 }
 
