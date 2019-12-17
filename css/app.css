@@ -1,0 +1,27 @@
+.input-block{
+	background-color: #99c2ff;
+	border-radius: 2px;
+	border: 2px solid #66a3ff;
+}
+.todo-input{
+	font-size: 16px;
+	width: 75%;
+	padding: 10px;
+	color: #404040;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 2px;
+}
+.add-btn{
+	cursor: pointer;
+	transition: 0.5s;
+	background-color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+.add-btn:hover{
+	background-color: silver;
+}
+.todo-list{
+	
+}

@@ -42,7 +42,41 @@ class Model{
 
 class View{
 	constructor(){
+		this.todoApp = this.getElement('app');
 
+		/*Block with select, input, add button*/
+		this.inputBlock = this.createBlock('div', 'input-block');
+		this.inputBlock.id = 'inputBlock';
+
+		/*Select for filter items*/
+		this.select = this.createBlock('select');
+		this.select.id = 'taskFilter';
+		this.optionAll = this.createBlock('option');
+		this.optionAll.text = 'All';
+		this.optionDone = this.createBlock('option');
+		this.optionDone.text = 'Done';
+		this.optionActive = this.createBlock('option');
+		this.optionActive.text = 'Active';
+		this.select.append(this.optionAll, this.optionDone, this.optionActive);
+
+		/*Input for todo items*/
+		this.input = this.createBlock('input', 'todo-input');
+		this.input.id = 'taskInput';
+		this.input.type = 'text';
+		this.input.placeholder = 'Write you task here...';
+		this.input.name = 'task';
+
+		/*Add button*/
+		this.addButton = this.createBlock('button', 'add-btn');
+		this.addButton.id = 'addTaskBtn';
+		this.addButton.textContent = 'Add';
+
+		/*List for todo items*/
+		this.todoItemsList = this.createBlock('ul', 'todo-list');
+		this.todoItemsList.id = 'todoItemsList';
+
+		this.inputBlock.append(this.select, this.input, this.addButton);
+		this.todoApp.append(this.inputBlock, this.todoItemsList);
 	}
 
 	createBlock(tagName, className){
@@ -56,7 +90,7 @@ class View{
 
 	getElement(elementId){
 		let element = document.getElementById(elementId);
-		
+
 		return element;
 	}
 }
