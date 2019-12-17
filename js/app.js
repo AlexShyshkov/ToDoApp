@@ -22,11 +22,11 @@ class Model{
 				text: newTodoItemValue,
 				isComplete: todoItem.isComplete
 			} :	todoItem
-		)	
+		);	
 	}
 
 	deleteTodoItem(id){
-
+		this.todoItems = this.todoItems.filter(todoItem => todoItem.id !== id);
 	}
 
 	changeCompleteProperty(id){
