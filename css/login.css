@@ -1,4 +1,4 @@
-.login-block{
+.content-login-block{
     background-color: white;
     width: 310px;
     padding: 20px 20px 20px 20px;
@@ -10,7 +10,7 @@
     transform: translate(-50%, -50%);
     transition: 0.5s;
 }
-.login-block h3{
+.content-login-block h3{
     margin: -20px -20px 21px;
     line-height: 40px;
     font-size: 15px;
@@ -20,32 +20,32 @@
     border-bottom: 1px solid #cfcfcf;
     border-radius: 2px 2px 0 0;
 }
-.login-block p{
+.content-login-block p{
     margin: 20px 0 0;
 }
-.login-block p:first-child{
+.content-login-block p:first-child{
     margin-top: 0;
 }
-.login-block input[type=text],
-.login-block input[type=password]{
+.content-login-block input[type=text],
+.content-login-block input[type=password]{
     width: 260px;
 }
-.login-block p.remember-me{
+.content-login-block p.remember-me{
     float: left;
     line-height: 30px;
 }
-.login-block p.remember-me label{
+.content-login-block p.remember-me label{
     font-size: 12px;
     color: #777;
     cursor: pointer;
 }
-.login-block p.remember-me input{
+.content-login-block p.remember-me input{
     position: relative;
     bottom: 1px;
     margin-right: 4px;
     vertical-align: middle;
 }
-.login-block p.submit{
+.content-login-block p.submit{
     text-align: right;
 }
 input{
