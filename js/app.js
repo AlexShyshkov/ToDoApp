@@ -101,6 +101,45 @@ class View{
 	clearInput(){
 		this.input.value = '';
 	}
+
+	displayTodoItems(todoItems){
+		while(this.todoItemsList.firstChild){
+			this.todoItemsList.removeChild(this.todoItemsList.firstChild);
+		}
+
+		if(todoItems.length === 0){
+			let defaultMessage = this.createBlock('p');
+			defaultMessage.textContent = 'You have no tasks today';
+			this.todoItemsList.append(defaultMessage);
+		} else {
+			todoItems.forEach( todoItem => {
+				let line = this.createBlock('li');
+				line.id = todoItem.id;
+
+				let checkbox = this.createBlock('input');
+				checkbox.type = 'checkbox';
+				checkbox.checked = todoItem.isComplete; //
+
+				let span = this.createBlock('span');
+				span.contentEditable = true;
+				span.classList.add('editable');
+
+				if(todoItem.isComplete){
+					let strike = this.createBlock('s');
+					strike.textContent = todoItem.text;
+					span.append(strike);
+				} else {
+					span.textContent = todoItem.text;
+				}
+
+				let deleteBtn = this.createBlock('button', 'delete-btn');
+				deleteBtn.textContent = 'Delete';
+				line.append(checkbox, span, deleteBtn);
+
+				this.todoItemsList.append(line);
+			});
+		}
+	}
 }
 
 class Controller{

@@ -8,6 +8,7 @@
 	left: 50%;
 	top: 45%;
 	transform: translate(-50%, 45%);
+	text-align: center;
 }
 .todo-select{
 	height: 40px;
@@ -42,5 +43,17 @@
 	background-color: silver;
 }
 .todo-list{
+
+}
+.editable{
+
+}
+.delete-btn{
+	background-color: #99c2ff;
+	color: white;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.delete-btn:hover{
 
 }
