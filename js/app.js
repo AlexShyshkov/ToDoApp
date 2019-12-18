@@ -140,6 +140,37 @@ class View{
 			});
 		}
 	}
+
+	bindAddTodoItem(handler){
+		this.addButton.addEventListener('submit', event => {//-form?
+			event.preventDefault();
+
+			if(this.inputText){
+				handler(this.inputText);
+				this.clearInput();
+			}
+		});
+	}
+
+	bindDeleteTodoItem(handler){
+		this.todoItemsList.addEventListener('click', event => {
+			if(event.target.className === 'delete-btn'){
+				let id = parseInt(event.target.parentElement.id);
+
+				handler(id);
+			}
+		});
+	}
+
+	bindChangeCompleteProperty(handler){
+		this.todoItemsList.addEventListener('change', event => {
+			if(event.target.type === 'checkbox'){
+				let id = parseInt(event.target.parentElement.id);
+
+				handler(id);
+			}
+		});
+	}
 }
 
 class Controller{
@@ -147,10 +178,14 @@ class Controller{
 		this.model = model;
 		this.view = view;
 
+		this.view.bindAddTodoItem(this.addTodoItemHandler);
+		this.view.bindDeleteTodoItem(this.deleteTodoItemHandler);
+		this.view.bindChangeCompleteProperty(this.changeCompletePropertyHandler);
+
 		this.onTodoListChanged(this.model.todoItems);
 	}
 
-	onTodoListChanged(todoItems){
+	onTodoListChanged(todoItems){//??
 		this.view.displayTodoItems(todoItems);
 	}
 
@@ -169,6 +204,8 @@ class Controller{
 	changeCompletePropertyHandler(id){
 		this.model.changeCompleteProperty(id);
 	}
+
+
 }
 
 let modelApp = new Model();
