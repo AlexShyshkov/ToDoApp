@@ -162,7 +162,7 @@ class View{
 		});
 	}
 
-	bindChangeCompleteProperty(handler){
+	bindCompleteTodoItem(handler){
 		this.todoItemsList.addEventListener('change', event => {
 			if(event.target.type === 'checkbox'){
 				let id = parseInt(event.target.parentElement.id);
@@ -180,7 +180,7 @@ class Controller{
 
 		this.view.bindAddTodoItem(this.addTodoItemHandler);
 		this.view.bindDeleteTodoItem(this.deleteTodoItemHandler);
-		this.view.bindChangeCompleteProperty(this.changeCompletePropertyHandler);
+		this.view.bindCompleteTodoItem(this.completeTodoItemHandler);
 
 		this.onTodoListChanged(this.model.todoItems);
 	}
@@ -201,11 +201,9 @@ class Controller{
 		this.model.deleteTodoItem(id);
 	}
 
-	changeCompletePropertyHandler(id){
-		this.model.changeCompleteProperty(id);
+	completeTodoItemandler(id){
+		this.model.completeTodoItem(id);
 	}
-
-
 }
 
 let modelApp = new Model();
