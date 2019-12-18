@@ -153,6 +153,22 @@ class Controller{
 	onTodoListChanged(todoItems){
 		this.view.displayTodoItems(todoItems);
 	}
+
+	addTodoItemHandler(text){
+		this.model.addTodoItem(text);
+	}
+
+	editTodoItemHandler(id, text){
+		this.model.editTodoItem(id, text);
+	}
+
+	deleteTodoItemHandler(id){
+		this.model.deleteTodoItem(id);
+	}
+
+	changeCompletePropertyHandler(id){
+		this.model.changeCompleteProperty(id);
+	}
 }
 
 let modelApp = new Model();
