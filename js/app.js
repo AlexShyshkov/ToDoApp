@@ -29,7 +29,7 @@ class Model{
 		this.todoItems = this.todoItems.filter(todoItem => todoItem.id !== id);
 	}
 
-	changeCompleteProperty(id){
+	completeTodoItem(id){
 		this.todoItems = this.todoItems.map(todoItem =>
 			todoItem.id === id ? {
 				id: todoItem.id,
