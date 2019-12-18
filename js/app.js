@@ -201,7 +201,7 @@ class Controller{
 		this.model.deleteTodoItem(id);
 	}
 
-	completeTodoItemandler(id){
+	completeTodoItemHandler(id){
 		this.model.completeTodoItem(id);
 	}
 }
