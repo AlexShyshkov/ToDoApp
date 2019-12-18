@@ -146,6 +146,12 @@ class Controller{
 	constructor(model, view){
 		this.model = model;
 		this.view = view;
+
+		this.onTodoListChanged(this.model.todoItems);
+	}
+
+	onTodoListChanged(todoItems){
+		this.view.displayTodoItems(todoItems);
 	}
 }
 
