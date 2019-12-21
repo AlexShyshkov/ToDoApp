@@ -159,7 +159,7 @@ class View{
 				deleteBtn.textContent = 'Delete';
 				line.append(checkbox, span, deleteBtn);
 
-				this.todoItemsList.append(line);
+				this.todoItemsList.prepend(line);
 			});
 		}
 
