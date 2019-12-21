@@ -98,8 +98,8 @@ class View{
 		this.todoApp.append(this.inputBlock, this.todoItemsList);
 
 		/**/
-		this.temporaryTodoItem = '';
-		this.updateTemporaryTodoItem();
+		this._temporaryTodoItem = '';
+		this._updateTemporaryTodoItem();
 	}
 
 	get _inputText(){
@@ -108,14 +108,6 @@ class View{
 
 	_clearInput(){
 		this.input.value = '';
-	}
-
-	updateTemporaryTodoItem(){
-		this.todoItemsList.addEventListener('input', event => {
-			if(event.target.className === 'editable'){
-				this.temporaryTodoItem = event.target.innerText;
-			}
-		});
 	}
 
 	createBlock(tagName, className){
@@ -170,10 +162,20 @@ class View{
 				this.todoItemsList.append(line);
 			});
 		}
+
+		console.log(todoItems);
+	}
+
+	_updateTemporaryTodoItem(){
+		this.todoItemsList.addEventListener('input', event => {
+			if(event.target.className === 'editable'){
+				this._temporaryTodoItem = event.target.innerText;
+			}
+		});
 	}
 
 	bindAddTodoItem(handler){
-		this.addButton.addEventListener('submit', event => {//-form?
+		this.form.addEventListener('submit', event => {
 			event.preventDefault();
 
 			if(this._inputText){
@@ -205,11 +207,11 @@ class View{
 
 	bindEditTodoItem(handler){
 		this.todoItemsList.addEventListener('focusout', event => {
-			if(this.temporaryTodoItem){
+			if(this._temporaryTodoItem){
 				let id = parseInt(event.target.parentElement.id);
 
-				handler(id, this.temporaryTodoItem);
-				this.temporaryTodoItem = '';
+				handler(id, this._temporaryTodoItem);
+				this._temporaryTodoItem = '';
 			}
 		});
 	}
@@ -251,6 +253,6 @@ class Controller{
 	}
 }
 
-let modelApp = new Model();
-let viewApp = new View();
-let todoApp = new Controller(modelApp, viewApp);
+//let modelApp = new Model();
+//let viewApp = new View();
+let todoApp = new Controller(new Model(), new View());
