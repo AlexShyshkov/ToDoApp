@@ -200,7 +200,7 @@ class View{
 		});
 	}
 
-	bindUpdateTodoIten(handler){
+	bindEditTodoItem(handler){
 		this.todoItemsList.addEventListener('focusout', event => {
 			if(this.temporaryTodoItem){
 				let id = parseInt(event.target.parentElement.id);
@@ -222,7 +222,7 @@ class Controller{
 		this.view.bindAddTodoItem(this.addTodoItemHandler);
 		this.view.bindDeleteTodoItem(this.deleteTodoItemHandler);
 		this.view.bindCompleteTodoItem(this.completeTodoItemHandler);
-		this.view.bindUpdateTodoIten(this.editTodoItemHandler);
+		this.view.bindEditTodoItem(this.editTodoItemHandler);
 
 		this.onTodoListChanged(this.model.todoItems);
 	}
