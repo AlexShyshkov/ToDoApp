@@ -58,7 +58,7 @@ class Model{
 
 class View{
 	constructor(){
-		this.todoApp = this.getElement('app');
+		this.todoApp = this.getElement('#app');
 
 		/*Block with select, input, add button*/
 		this.inputBlock = this.createBlock('div', 'input-block');
@@ -102,8 +102,12 @@ class View{
 		this.updateTemporaryTodoItem();
 	}
 
-	get __inputText(){
+	get _inputText(){
 		return this.input.value;
+	}
+
+	_clearInput(){
+		this.input.value = '';
 	}
 
 	updateTemporaryTodoItem(){
@@ -124,13 +128,9 @@ class View{
 	}
 
 	getElement(elementId){
-		let element = document.getElementById(elementId);
+		let element = document.querySelector(elementId);
 
 		return element;
-	}
-
-	clearInput(){
-		this.input.value = '';
 	}
 
 	displayTodoItems(todoItems){
