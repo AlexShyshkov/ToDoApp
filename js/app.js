@@ -13,6 +13,7 @@ class Model{
 		}
 
 		this.todoItems.push(todoItem);
+		this.saveItem(this.todoItems);
 	}
 
 	editTodoItem(id, newTodoItemValue){
@@ -22,11 +23,15 @@ class Model{
 				text: newTodoItemValue,
 				isComplete: todoItem.isComplete
 			} :	todoItem
-		);	
+		);
+
+		this.saveItem(this.todoItems);	
 	}
 
 	deleteTodoItem(id){
 		this.todoItems = this.todoItems.filter(todoItem => todoItem.id !== id);
+
+		this.saveItem(this.todoItems);
 	}
 
 	completeTodoItem(id){
@@ -37,10 +42,17 @@ class Model{
 				isComplete: !todoItem.isComplete
 			} : todoItem
 		);
+
+		this.saveItem(this.todoItems);
 	}
 
 	bindTodoListChanged(callback){
 		this.onTodoListChanged = callback;
+	}
+
+	saveItem(todoItems){
+		this.onTodoListChanged(todoItems);
+		localStorage.setItem('items', JSON.stringify(todoItems));
 	}
 }
 
