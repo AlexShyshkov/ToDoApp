@@ -149,13 +149,13 @@ class View{
 
 				let checkbox = this.createBlock('input');
 				checkbox.type = 'checkbox';
-				checkbox.checked = todoItem.isComplete; //
+				checkbox.checked = todoItem.complete;
 
 				let span = this.createBlock('span');
 				span.contentEditable = true;
 				span.classList.add('editable');
 
-				if(todoItem.isComplete){
+				if(todoItem.complete){
 					let strike = this.createBlock('s');
 					strike.textContent = todoItem.text;
 					span.append(strike);
