@@ -137,6 +137,7 @@ class View{
 		} else {
 			todoItems.forEach( todoItem => {
 				let line = this.createBlock('li');
+				line.classList.add('todo-list-line');
 				line.id = todoItem.id;
 
 				let checkbox = this.createBlock('input');

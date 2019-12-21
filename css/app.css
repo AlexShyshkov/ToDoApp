@@ -59,7 +59,22 @@
 	background-color: #1a75ff;
 }
 .todo-list{
-
+	width: 50%;
+	background-color: #c1f0f0;
+	border-radius: 2px;
+	border: 1px solid black;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+	margin-top: 40px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: left;
+}
+.todo-list-line{
+	width: 200px;
+	margin-bottom: 5px;
+	list-style-type: none;
 }
 .editable{
 
