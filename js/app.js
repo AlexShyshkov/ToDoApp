@@ -199,6 +199,17 @@ class View{
 			}
 		});
 	}
+
+	bindUpdateTodoIten(handler){
+		this.todoItemsList.addEventListener('focusout', event => {
+			if(this.temporaryTodoItem){
+				let id = parseInt(event.target.parentElement.id);
+
+				handler(id, this.temporaryTodoItem);
+				this.temporaryTodoItem = '';
+			}
+		});
+	}
 }
 
 class Controller{
@@ -211,6 +222,7 @@ class Controller{
 		this.view.bindAddTodoItem(this.addTodoItemHandler);
 		this.view.bindDeleteTodoItem(this.deleteTodoItemHandler);
 		this.view.bindCompleteTodoItem(this.completeTodoItemHandler);
+		this.view.bindUpdateTodoIten(this.editTodoItemHandler);
 
 		this.onTodoListChanged(this.model.todoItems);
 	}
