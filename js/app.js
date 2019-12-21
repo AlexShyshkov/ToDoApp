@@ -232,27 +232,25 @@ class Controller{
 		this.onTodoListChanged(this.model.todoItems);
 	}
 
-	onTodoListChanged(todoItems){//??
+	onTodoListChanged = todoItems => {
 		this.view.displayTodoItems(todoItems);
 	}
 
-	addTodoItemHandler(text){
+	addTodoItemHandler = text => {
 		this.model.addTodoItem(text);
 	}
 
-	editTodoItemHandler(id, text){
+	editTodoItemHandler = (id, text) => {
 		this.model.editTodoItem(id, text);
 	}
 
-	deleteTodoItemHandler(id){
+	deleteTodoItemHandler = id => {
 		this.model.deleteTodoItem(id);
 	}
 
-	completeTodoItemHandler(id){
+	completeTodoItemHandler = id => {
 		this.model.completeTodoItem(id);
 	}
 }
 
-//let modelApp = new Model();
-//let viewApp = new View();
 let todoApp = new Controller(new Model(), new View());
