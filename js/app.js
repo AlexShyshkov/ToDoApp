@@ -93,6 +93,18 @@ class View{
 
 		this.inputBlock.append(this.select, this.input, this.addButton);
 		this.todoApp.append(this.inputBlock, this.todoItemsList);
+
+		/**/
+		this.temporaryTodoItem = '';
+		this.updateTemporaryTodoItem();
+	}
+
+	updateTemporaryTodoItem(){
+		this.todoItemsList.addEventListener('input', event => {
+			if(event.target.className === 'editable'){
+				this.temporaryTodoItem = event.target.innerText;
+			}
+		});
 	}
 
 	createBlock(tagName, className){
