@@ -38,6 +38,10 @@ class Model{
 			} : todoItem
 		);
 	}
+
+	bindTodoListChanged(callback){
+		this.onTodoListChanged = callback;
+	}
 }
 
 class View{
@@ -177,6 +181,8 @@ class Controller{
 	constructor(model, view){
 		this.model = model;
 		this.view = view;
+
+		this.model.bindTodoListChanged(this.onTodoListChanged);
 
 		this.view.bindAddTodoItem(this.addTodoItemHandler);
 		this.view.bindDeleteTodoItem(this.deleteTodoItemHandler);
