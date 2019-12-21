@@ -5,6 +5,15 @@ class Model{
 		this.todoItems = JSON.parse(localStorage.getItem('todoItems')) || [];
 	}
 
+	bindTodoListChanged(callback){
+		this.onTodoListChanged = callback;
+	}
+
+	_saveItem(todoItems){
+		this.onTodoListChanged(todoItems);
+		localStorage.setItem('items', JSON.stringify(todoItems));
+	}
+
 	addTodoItem(inputedText){
 		let todoItem = {
 			id: this.todoItems.length > 0 ? this.todoItems[this.todoItems.length - 1].id + 1 : 1,
@@ -44,15 +53,6 @@ class Model{
 		);
 
 		this.saveItem(this.todoItems);
-	}
-
-	bindTodoListChanged(callback){
-		this.onTodoListChanged = callback;
-	}
-
-	saveItem(todoItems){
-		this.onTodoListChanged(todoItems);
-		localStorage.setItem('items', JSON.stringify(todoItems));
 	}
 }
 
