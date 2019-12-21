@@ -64,6 +64,8 @@ class View{
 		this.inputBlock = this.createBlock('div', 'input-block');
 		this.inputBlock.id = 'inputBlock';
 
+		this.form = this.createBlock('form');
+
 		/*Select for filter items*/
 		this.select = this.createBlock('select', 'todo-select');
 		this.select.id = 'taskFilter';
@@ -91,12 +93,17 @@ class View{
 		this.todoItemsList = this.createBlock('ul', 'todo-list');
 		this.todoItemsList.id = 'todoItemsList';
 
-		this.inputBlock.append(this.select, this.input, this.addButton);
+		this.form.append(this.select, this.input, this.addButton)
+		this.inputBlock.append(this.form);
 		this.todoApp.append(this.inputBlock, this.todoItemsList);
 
 		/**/
 		this.temporaryTodoItem = '';
 		this.updateTemporaryTodoItem();
+	}
+
+	get __inputText(){
+		return this.input.value;
 	}
 
 	updateTemporaryTodoItem(){
@@ -120,10 +127,6 @@ class View{
 		let element = document.getElementById(elementId);
 
 		return element;
-	}
-
-	get inputText(){
-		return this.input.value;
 	}
 
 	clearInput(){
@@ -173,8 +176,8 @@ class View{
 		this.addButton.addEventListener('submit', event => {//-form?
 			event.preventDefault();
 
-			if(this.inputText){
-				handler(this.inputText);
+			if(this._inputText){
+				handler(this._inputText);
 				this.clearInput();
 			}
 		});
