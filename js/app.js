@@ -180,7 +180,7 @@ class View{
 
 			if(this._inputText){
 				handler(this._inputText);
-				this.clearInput();
+				this._clearInput();
 			}
 		});
 	}
