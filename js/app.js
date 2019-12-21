@@ -18,11 +18,11 @@ class Model{
 		let todoItem = {
 			id: this.todoItems.length > 0 ? this.todoItems[this.todoItems.length - 1].id + 1 : 1,
 			text: inputedText,
-			isComplete: false
+			complete: false
 		}
 
 		this.todoItems.push(todoItem);
-		this.saveItem(this.todoItems);
+		this._saveItem(this.todoItems);
 	}
 
 	editTodoItem(id, newTodoItemValue){
@@ -30,17 +30,17 @@ class Model{
 			todoItem.id === id ? {
 				id: todoItem.id,
 				text: newTodoItemValue,
-				isComplete: todoItem.isComplete
+				complete: todoItem.complete
 			} :	todoItem
 		);
 
-		this.saveItem(this.todoItems);	
+		this._saveItem(this.todoItems);	
 	}
 
 	deleteTodoItem(id){
 		this.todoItems = this.todoItems.filter(todoItem => todoItem.id !== id);
 
-		this.saveItem(this.todoItems);
+		this._saveItem(this.todoItems);
 	}
 
 	completeTodoItem(id){
@@ -48,11 +48,11 @@ class Model{
 			todoItem.id === id ? {
 				id: todoItem.id,
 				text: todoItem.inputedText,
-				isComplete: !todoItem.isComplete
+				complete: !todoItem.complete
 			} : todoItem
 		);
 
-		this.saveItem(this.todoItems);
+		this._saveItem(this.todoItems);
 	}
 }
 
