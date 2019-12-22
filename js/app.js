@@ -61,12 +61,11 @@ class Model{
 		this._updateValue(this.todoItems);
 	}
 
-	sortTodoItem(complete){
+	/*sortTodoItem(complete){
 		this.todoItems = this.todoItems.filter(todoItem => todoItem.complete === true);
 
-		this._updateValue(this.todoItems);
-		console.log(this.todoItems);
-	}
+		//this._updateValue(this.todoItems);
+	}*/
 }
 
 class View{
@@ -238,16 +237,15 @@ class View{
 		});
 	}
 
-	bindSortTodoItem(handler){
+	/*bindSortTodoItem(handler){
 		this.select.addEventListener('change', event =>{
 			if(event.target.options[this.select.selectedIndex].text === 'Done'){
-				console.log(event.target.options[this.select.selectedIndex].text);
 				let id = parseInt(event.target.parentElement.id);
 
 				handler(id);
 			}
 		});
-	}
+	}*/
 }
 
 class Controller{
@@ -263,7 +261,7 @@ class Controller{
 		this.view.bindCompleteTodoItem(this.completeTodoItemHandler);
 		this.view.bindEditTodoItem(this.editTodoItemHandler);
 
-		this.view.bindSortTodoItem(this.sortTodoItemHandler);
+		//this.view.bindSortTodoItem(this.sortTodoItemHandler);
 
 		//Display default items if they exist
 		this.onTodoListChanged(this.model.todoItems);
@@ -290,9 +288,9 @@ class Controller{
 		this.model.completeTodoItem(id);
 	}
 
-	sortTodoItemHandler = complete => {
+	/*sortTodoItemHandler = complete => {
 		this.model.sortTodoItem(complete);
-	}
+	}*/
 }
 
 let todoApp = new Controller(new Model(), new View());
