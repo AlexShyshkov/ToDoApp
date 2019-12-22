@@ -21,7 +21,6 @@ window.addEventListener('DOMContentLoaded', function(){
 
         for(let i = 0; i < userData.length; i++){
             if(username == userData[i].username && password == userData[i].password){
-                //alert("Welcome");
                 loginForm.classList.remove('visible');
                 loginForm.classList.add('hidden');
                 todoApp.classList.remove('hidden');
@@ -63,14 +62,6 @@ window.addEventListener('DOMContentLoaded', function(){
     }
 
     login.addEventListener('click', function(){
-        /*let xhr = new XMLHttpRequest();
-        xhr.open('POST', 'js/users.json');
-        xhr.onload = function(){
-            let user = JSON.parse(this.response);
-            checkUser(user);
-        };
-        xhr.send();*/
-
         sendAjaxRequest('js/users.json');
         rememberUsername();
     });
