@@ -131,24 +131,21 @@ class View{
 		}
 
 		if(todoItems.length === 0){
-			let defaultMessage = this.createBlock('p');
-			defaultMessage.classList.add('default-msg');
+			let defaultMessage = this.createBlock('p', 'default-msg');
 			defaultMessage.textContent = 'You have no tasks today';
 			this.todoItemsList.append(defaultMessage);
 		} else {
 			todoItems.forEach( todoItem => {
-				let line = this.createBlock('li');
-				line.classList.add('todo-list-line');
+				let line = this.createBlock('li', 'todo-list-line');
 				line.id = todoItem.id;
 
-				let checkbox = this.createBlock('input');
+				let checkbox = this.createBlock('input', 'todo-list-line__checkbox');
 				checkbox.type = 'checkbox';
 				checkbox.checked = todoItem.complete;
 
-				let span = this.createBlock('span');
+				let span = this.createBlock('span', 'todo-list-line__span');
 				span.contentEditable = true;
-				span.classList.add('editable');
-
+				
 				if(todoItem.complete){
 					let strike = this.createBlock('s');
 					strike.textContent = todoItem.text;
@@ -170,7 +167,7 @@ class View{
 
 	_updateTemporaryTodoItem(){
 		this.todoItemsList.addEventListener('input', event => {
-			if(event.target.className === 'editable'){
+			if(event.target.className === 'todo-list-line__span'){
 				this._temporaryTodoItem = event.target.innerText;
 			}
 		});

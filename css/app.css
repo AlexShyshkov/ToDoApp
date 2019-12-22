@@ -50,6 +50,8 @@
 	background-color: #1a75ff;
 }
 .delete-btn{
+	position: absolute;
+	right: 50px;
 	background-color: #99c2ff;
 	color: white;
 	border-radius: 2px;
@@ -76,9 +78,21 @@
 }
 .todo-list-line{
 	width: 200px;
+	height: 30px;
+	margin-left: 5px;
 	margin-bottom: 5px;
+	padding-bottom: 5px;
 	list-style-type: none;
 }
-.editable{
+.delete-btn,
+.todo-list-line__checkbox,
+.todo-list-line__span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.todo-list-line__checkbox{
 
+}
+.todo-list-line__span{
+	margin-left: 5px;
 }
