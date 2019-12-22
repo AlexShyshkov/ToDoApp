@@ -10,6 +10,9 @@
 	transform: translate(-50%, 45%);
 	text-align: center;
 }
+.default-msg{
+	text-align: center;
+}
 .todo-select,
 .todo-input,
 .add-btn{

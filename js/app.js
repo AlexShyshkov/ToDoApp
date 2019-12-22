@@ -132,6 +132,7 @@ class View{
 
 		if(todoItems.length === 0){
 			let defaultMessage = this.createBlock('p');
+			defaultMessage.classList.add('default-msg');
 			defaultMessage.textContent = 'You have no tasks today';
 			this.todoItemsList.append(defaultMessage);
 		} else {
