@@ -60,6 +60,13 @@ class Model{
 
 		this._updateValue(this.todoItems);
 	}
+
+	sortTodoItem(complete){
+		this.todoItems = this.todoItems.filter(todoItem => todoItem.complete === true);
+
+		this._updateValue(this.todoItems);
+		console.log(this.todoItems);
+	}
 }
 
 class View{
@@ -79,8 +86,6 @@ class View{
 		this.optionAll.text = 'All';
 		this.optionDone = this.createBlock('option');
 		this.optionDone.text = 'Done';
-		this.optionActive = this.createBlock('option');
-		this.optionActive.text = 'Active';
 		this.select.append(this.optionAll, this.optionDone, this.optionActive);
 
 		//Creation of input field for todo items
@@ -232,6 +237,17 @@ class View{
 			}
 		});
 	}
+
+	bindSortTodoItem(handler){
+		this.select.addEventListener('change', event =>{
+			if(event.target.options[this.select.selectedIndex].text === 'Done'){
+				console.log(event.target.options[this.select.selectedIndex].text);
+				let id = parseInt(event.target.parentElement.id);
+
+				handler(id);
+			}
+		});
+	}
 }
 
 class Controller{
@@ -247,11 +263,13 @@ class Controller{
 		this.view.bindCompleteTodoItem(this.completeTodoItemHandler);
 		this.view.bindEditTodoItem(this.editTodoItemHandler);
 
+		this.view.bindSortTodoItem(this.sortTodoItemHandler);
+
 		//Display default items if they exist
 		this.onTodoListChanged(this.model.todoItems);
 	}
 
-	//Handlers for the events in yhe controller
+	//Handlers for the events in the controller
 	onTodoListChanged = todoItems => {
 		this.view.displayTodoItems(todoItems);
 	}
@@ -270,6 +288,10 @@ class Controller{
 
 	completeTodoItemHandler = id => {
 		this.model.completeTodoItem(id);
+	}
+
+	sortTodoItemHandler = complete => {
+		this.model.sortTodoItem(complete);
 	}
 }
 
