@@ -47,7 +47,7 @@ class Model{
 		this.todoItems = this.todoItems.map(todoItem =>
 			todoItem.id === id ? {
 				id: todoItem.id,
-				text: todoItem.inputedText,
+				text: todoItem.text,
 				complete: !todoItem.complete
 			} : todoItem
 		);
