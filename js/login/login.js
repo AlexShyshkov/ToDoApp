@@ -1,12 +1,12 @@
 'use strict';
 
+import rememberUsername from './storage.js';
+
 window.addEventListener('DOMContentLoaded', function(){
     let loginForm = document.getElementById('login-form'),
         todoApp = document.getElementById('app'),
-        login = document.getElementById('login'),
-        rememberUser = document.getElementById('remember'),
-        usernameValue = document.getElementById('username');
-
+        login = document.getElementById('login');
+        
     function checkUser(userData){
         let username = document.getElementById('username').value,
             password = document.getElementById('password').value;
@@ -19,38 +19,20 @@ window.addEventListener('DOMContentLoaded', function(){
             return false;
         }
 
-        for(let i = 0; i < userData.length; i++){
+        for(let i = 0; i <= userData.length; ++i){
             if(username == userData[i].username && password == userData[i].password){
                 loginForm.classList.remove('visible');
                 loginForm.classList.add('hidden');
                 todoApp.classList.remove('hidden');
                 todoApp.classList.add('vissible');
-                console.log(userData[i].username, userData[i].password);
+                //console.log(userData[i].username, userData[i].password);
                 break;
             } else {
-                alert("Incorrect username or password");
+                //alert("Incorrect username or password");
             }
         }
     }
    
-    function rememberUsername(){
-        if(localStorage.checkbox && localStorage.checkbox !== ""){
-            rememberUser.setAttribute("checked", "checked");
-            usernameValue.value = localStorage.username;
-        } else {
-            rememberUser.removeAttribute("cheked");
-            usernameValue.value = "";
-        }
-
-        if(rememberUser.checked && usernameValue.value !== ""){
-            localStorage.username = usernameValue.value;
-            localStorage.checkbox = rememberUser.value;
-        } else {
-            localStorage.username = "";
-            localStorage.checkbox = "";
-        }
-    }
-
     function sendAjaxRequest(url){
         let xhr = new XMLHttpRequest();
         xhr.open('POST', url);
@@ -62,7 +44,7 @@ window.addEventListener('DOMContentLoaded', function(){
     }
 
     login.addEventListener('click', function(){
-        sendAjaxRequest('js/users.json');
+        sendAjaxRequest('js/login/users.json');
         rememberUsername();
     });
 });
