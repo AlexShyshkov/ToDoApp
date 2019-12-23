@@ -13,6 +13,7 @@ Application built using MVC (model-view-controller) architectural pattern
     - app.css - todo application css styles
     - footer.css - footer block css styles
 3. js folder - folder with application scripts
+    
     3.1 login - folder with login process scripts
         - login.js - script with login process logic
         - storage.js - script for username remembering in login form 
